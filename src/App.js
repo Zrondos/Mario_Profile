@@ -7,9 +7,18 @@ import Footer from "./Components/Footer.js";
 import Header from "./Components/Header";
 import To_do_item from "./Components/To_do";
 import ContactCard from "./Components/ContactCard";
+import Joke from "./Components/Joke";
+import jokesData from "./jokesData";
+import FeedMe from "./Components/FeedMe";
 
 class App extends Component {
   render() {
+    // const jokeComponents = jokesData.map(joke => (
+    //   <Joke question={joke.question} punchLine={joke.punchLine} />
+    // ));
+    const jokeComponents = jokesData.map(joke => {
+      return <Joke question={joke.question} punchline={joke.punchline} />;
+    });
     return (
       <div>
         <Header />
@@ -31,6 +40,21 @@ class App extends Component {
           imgUrl="https://www.mariowiki.com/images/thumb/b/b7/SuperMarioParty_Peach_2.png/175px-SuperMarioParty_Peach_2.png"
           address="Mushroom Castle"
         />
+        <div>
+          <h2>Jokes</h2>
+          {jokeComponents}
+          {/* <Joke
+            question="Why did Princess Peach cross the road? "
+            punchline="She was playing Mario Kart and not wearing her seatbelt."
+          />
+          <Joke punchline="Mario is red. Sonic is blue. Press start to join and be my player 2. " />
+          <Joke
+            question="What is Mario's favorite musical? "
+            punchline="Mama Mia"
+          /> */}
+        </div>
+        <div />
+        <FeedMe />
         <Footer />
       </div>
     );
